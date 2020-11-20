@@ -28,7 +28,7 @@ echo ""
 echo "Starting container once"
 docker run -d --name="$CONTAINERNAME" -e PUID=1000 -e PGID=1000   --network git-net -e TZ=Europe/Berlin  -p "$HTTPPORT":80  -p "$SSLPORT":443 -v "$PERSISTEND":/config   --restart unless-stopped "$IMAGENAME"
 echo "Stopping container"
-docker stop "$IMAGENAME"
+docker stop "$CONTAINERNAME"
 
 
 
