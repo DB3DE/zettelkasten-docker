@@ -13,11 +13,13 @@ else
 	mkdir -p "$PERSISTEND"
 fi
 
+echo ""
+echo "########################################"
 echo "Image Name: $IMAGENAME"
 echo "Containername: $CONTAINERNAME"
 echo "Data will be stored here: $PERSISTEND" 
 echo "Upstream gitrepo will be: $REPO"
-
+echo "########################################"
 
 echo ""
 echo "Building image for zettelkasten"
