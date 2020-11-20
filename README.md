@@ -7,12 +7,12 @@ My Version of a Zettelkasten with Dokuwiki on Docker
 
 1) Install docker https://docs.docker.com/get-docker/
 2) I recommend using gitea as a git server. If you use this do the following:
-   Create a private Network for connecting Zettelkasten and the gitea git sever
+   * Create a private Network for connecting Zettelkasten and the gitea git sever
    <code>
    docker network create --driver bridge git-net
    </code>
    
-   Than install and start the gitea server
+   * Than install and start the gitea server
    <code>
    sudo docker run -d \
   --name="gitea" \
