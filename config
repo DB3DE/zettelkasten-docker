@@ -1,5 +1,5 @@
 CONTAINERNAME="zettelkasten"      #name the docker container will get
-IMAGENAME="linuxserver/dokuwiki"
+IMAGENAME="local/zettelkasten"
 PERSISTEND="/data/zettelkasten"	#local directory for all persistend data  !!! must change !!!
 REPO="git@gitea:zetteluser/zettelkasten.git"
 HTTPPORT="80"     #port to be exposed unencrypted for the webserver
