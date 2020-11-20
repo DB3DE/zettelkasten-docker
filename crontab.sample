@@ -9,4 +9,4 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-*/5 * * * * docker container ls|grep Up |grep zettelkasten2 >/dev/null && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git pull; git push
+*/5 * * * * docker container ls|grep Up |grep zettelkasten >/dev/null && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git pull && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git push
