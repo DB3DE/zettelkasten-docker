@@ -22,7 +22,7 @@ echo "Upstream gitrepo will be: $REPO"
 echo "########################################"
 
 echo ""
-echo "Building image for zettelkasten"
+echo "Building image for $IMAGENAME"
 docker build -t "$IMAGENAME" "$SCRIPTPATH/../"
 
 
