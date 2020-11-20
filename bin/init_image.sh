@@ -20,7 +20,7 @@ echo "Upstream gitrepo will be: $REPO"
 
 
 echo ""
-echo "Building image"
+echo "Building image for zettelkasten"
 docker build -t "$IMAGENAME" "$SCRIPTPATH/../"
 
 
@@ -32,8 +32,9 @@ docker stop "$IMAGENAME"
 
 
 
-echo "Docker image should be generated"
-echo "Start a container with the start command"
-echo "Then you have to initialize according to the manual once"
+echo "Docker image should be generated and data initialized"
+echo "Take care of your ssh keys (see manual)"
+echo "then start the container with the start command"
+echo "Afterwards initialize the git stuff :-)"
 
 exit 0
