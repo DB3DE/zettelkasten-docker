@@ -11,11 +11,10 @@ My Version of a Zettelkasten with Dokuwiki on Docker
    <code>
    docker network create --driver bridge git-net
    </code>
-
+   
    Than install and start the gitea server
    <code>
-
-   	sudo docker run -d \
+   sudo docker run -d \
   --name="gitea" \
   -e PUID=1000 -e PGID=1000 \
   -p 3000:3000 -p 222:22  \
