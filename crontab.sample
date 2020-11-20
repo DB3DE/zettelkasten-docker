@@ -1,0 +1,12 @@
+#* * * * * auszuführender Befehl
+#┬ ┬ ┬ ┬ ┬
+#│ │ │ │ │
+#│ │ │ │ └──── Wochentag (0-7, Sonntag ist 0 oder 7)
+#│ │ │ └────── Monat (1-12)
+#│ │ └──────── Tag (1-31)
+#│ └────────── Stunde (0-23)
+#└──────────── Minute (0-59)
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+*/5 * * * * docker container ls|grep Up |grep zettelkasten2 >/dev/null && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git pull; git push

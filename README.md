@@ -29,14 +29,13 @@ My Version of a Zettelkasten with Dokuwiki on Docker
    * config the gitea server
 
 3) Clone this repo to some directory
-4) Create some directoy to store the date.
+4) Edit the config file for your needs
+5) Run the init image script:
    <code>
-   	sudo mkdir -p /data/zettelkasten
+   	 chmod +x bin/init_image.sh
+     ./bin/init_image.sh
    </code>
-5) Edit the config file for your needs
-6) run ./bin/init_image.sh
-7) Take care of you ssh key. One was generated for you in $DATAPATH/keys
+6) Take care of you ssh key. One was generated for you in $DATAPATH/keys
    either exchange for your keys or configure your git server with them
-8) If you plan to expose this instance get some proper Certs and exchange the files in $DATAPATH/keys
-9) 
-10) Optional: Change the default commit username and email in $DATAPATH/dokuwiki/conf/local.php
+7) If you plan to expose this instance get some proper Certs and exchange the files in $DATAPATH/keys
+8) Optional: Change the default commit username and email in $DATAPATH/dokuwiki/conf/local.php
