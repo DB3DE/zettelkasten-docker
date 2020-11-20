@@ -39,3 +39,4 @@ My Version of a Zettelkasten with Dokuwiki on Docker
    either exchange for your keys or configure your git server with them
 7) If you plan to expose this instance get some proper Certs and exchange the files in $DATAPATH/keys
 8) Optional: Change the default commit username and email in $DATAPATH/dokuwiki/conf/local.php
+9) Optional: add a cron job for regulart push/pull job - see crontab.sample
