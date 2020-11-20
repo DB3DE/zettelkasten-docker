@@ -23,15 +23,15 @@ RUN \
  echo "[[Installed Plugins]]" >> /app/dokuwiki/data/pages/start.txt && \
  echo "====== Installed Plugins ======" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
  ##############################  DRAW IO
- echo "**** Install plugin Drawio" && \
- echo "  * [[https://www.dokuwiki.org/plugin:drawio|Drawio]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
- curl -o /tmp/drawio.zip -L "https://github.com/lejmr/dokuwiki-plugin-drawio/archive/0.2.9.zip" && \
- mkdir /tmp/tmpunzip && \
- unzip -d /tmp/tmpunzip /tmp/drawio.zip && \
- mkdir /app/dokuwiki/lib/plugins/drawio && \
- mv /tmp/tmpunzip/*/* /app/dokuwiki/lib/plugins/drawio && \
- rm -r /tmp/tmpunzip && \
- rm /tmp/drawio.zip && \
+ #echo "**** Install plugin Drawio" && \
+ #echo "  * [[https://www.dokuwiki.org/plugin:drawio|Drawio]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
+ #curl -o /tmp/drawio.zip -L "https://github.com/lejmr/dokuwiki-plugin-drawio/archive/0.2.9.zip" && \
+ #mkdir /tmp/tmpunzip && \
+ #unzip -d /tmp/tmpunzip /tmp/drawio.zip && \
+ #mkdir /app/dokuwiki/lib/plugins/drawio && \
+ #mv /tmp/tmpunzip/*/* /app/dokuwiki/lib/plugins/drawio && \
+ #rm -r /tmp/tmpunzip && \
+ #rm /tmp/drawio.zip && \
  ##############################  ImagePaste
  echo "**** Install plugin ImgPaste" && \
  echo "  * [[https://www.dokuwiki.org/plugin:imgpaste|ImgPaste]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
