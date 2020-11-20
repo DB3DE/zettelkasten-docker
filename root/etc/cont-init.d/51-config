@@ -1,0 +1,53 @@
+#!/usr/bin/with-contenv bash
+
+
+echo "[cont-init.d] Check if git plugin is configured and directories are moved"
+
+REPODIR="/config/dokuwiki/data/gitrepo"
+
+if [ ! -d "$REPODIR" ]; then
+  echo "[cont-init.d] Creating gitrepo directory: $REPODIR"
+  mkdir -p /config/dokuwiki/data/gitrepo 
+  mv /config/dokuwiki/data/media /config/dokuwiki/data/gitrepo/
+  mv /config/dokuwiki/data/pages /config/dokuwiki/data/gitrepo/
+  ln -s /config/dokuwiki/data/gitrepo /app/dokuwiki/data/gitrepo
+  #ln -s ./gitrepo/pages /config/dokuwiki/data/pages
+  #ln -s ./gitrepo/media /config/dokuwiki/data/media
+  #rm /app/dokuwiki/data/pages /app/dokuwiki/data/media
+  #ln -s /config/dokuwiki/data/gitrepo/pages /app/dokuwiki/data/pages
+  #ln -s /config/dokuwiki/data/gitrepo/media /app/dokuwiki/data/media
+else
+  echo "[cont-init.d] Gitrepo directory $REPODIR exists"
+fi
+
+
+ #echo "**** Apply directoy changes for git" && \
+ #mkdir -p /config/dokuwiki/data/gitrepo && \
+ #mv /config/dokuwiki/data/media /config/dokuwiki/data/gitrepo/ && \
+ #mv /config/dokuwiki/data/pages /config/dokuwiki/data/gitrepo/ && \
+ #ln -s /config/dokuwiki/data/gitrepo/pages /config/dokuwiki/data/pages && \
+ #ln -s /config/dokuwiki/data/gitrepo/media /config/dokuwiki/data/media && \
+
+if [ ! -f  /config/keys/id_rsa ]; then
+    echo "[cont-init.d] SSH key dosn't exist - creating it in /config/keys/"
+    ssh-keygen -f /config/keys/id-rsa -q -N ""
+    echo "[cont-init.d] Pubkey:"
+    cat /config/keys/id-rsa.pub
+fi
+
+
+
+
+
+# permissions
+echo "[cont-init.d] Setting permissions this may take some time"
+chown -R abc:abc \
+    /app/dokuwiki \
+    /config
+
+
+#if the git directory exists  do a pull to be up to date
+if [ -d "/config/dokuwiki/data/gitrepo/.git" ]; then
+    echo "[cont-init.d] Git directoy exists - doing initial pull"
+    cd /config/dokuwiki/data/gitrepo; git pull
+fi
