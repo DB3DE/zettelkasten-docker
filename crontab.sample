@@ -9,8 +9,5 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-
-*/5 * * * * /usr/bin/docker container ls|grep Up |grep zettelkasten >>/dev/null && /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git pull >>/dev/null 2>&1 && /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git push >>/dev/null 2>&1
-#debug version
-#*/1 * * * * /usr/bin/docker container ls|grep Up |grep zettelkasten >>/dev/null && /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git pull >>/tmp/log 2>&1 && /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git push >>/tmp/log 2>&1
+*/2 * * * * docker container ls|grep Up |grep zettelkasten >/dev/null && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git pull >>/tmp/log && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git push >> /tmp/log
 
