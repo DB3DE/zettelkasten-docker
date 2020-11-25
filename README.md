@@ -15,15 +15,17 @@ My Version of a Zettelkasten with Dokuwiki on Docker
    * Than install and start the gitea server
      <code>
 	     sudo docker run -d \
-	       --name="gitea" \
-	       -e PUID=1000 -e PGID=1000 \
-	       -p 3000:3000 -p 222:22  \
-	       --network git-net \
-	       --restart unless-stopped \
-	       -v /data/gitea:/data \
-	       -v /etc/timezone:/etc/timezone:ro \
-	       -v /etc/localtime:/etc/localtime:ro \
-	       kunde21/gitea
+         --name="gitea" \ 
+         -e PUID=1000 \
+         -e PGID=1000 \
+         -p 3000:3000 \
+         -p 222:22 \
+         --network git-net \
+         --restart unless-stopped \
+         -v /data/gitea:/data \
+         -v /etc/timezone:/etc/timezone:ro \
+         -v /etc/localtime:/etc/localtime:ro \
+         gitea/gitea
     </code>
 
    * config the gitea server
