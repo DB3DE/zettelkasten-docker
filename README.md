@@ -1,7 +1,7 @@
 # zettelkasten-docker
 My Version of a Zettelkasten with Dokuwiki on Docker
 
-## You are now on the branch for raspberrys
+## You are now on the branch for x86
 
 ## Installation
 
@@ -23,7 +23,7 @@ My Version of a Zettelkasten with Dokuwiki on Docker
 	       -v /data/gitea:/data \
 	       -v /etc/timezone:/etc/timezone:ro \
 	       -v /etc/localtime:/etc/localtime:ro \
-	       kunde21/gitea-arm
+	       kunde21/gitea
     </code>
 
    * config the gitea server
