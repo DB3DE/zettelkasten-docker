@@ -10,5 +10,4 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 */2 * * * * docker container ls|grep Up |grep zettelkasten >/dev/null && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git pull >>/tmp/log && docker exec -it -w /config/dokuwiki/data/gitrepo zettelkasten git push >> /tmp/log
-* 5 * * * /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git add media >>/dev/null 2>1 && /usr/bin/docker exec -w /config/dokuwiki/data/gitrepo zettelkasten git commit -m "Added files from media (draw IO)" >>/dev/null 2>&1
 
