@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#this scripts builds the image
 
 CONTAINERNAME="zettelkasten"
 IMAGENAME="zettelkasten_image"

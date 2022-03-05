@@ -1,7 +1,7 @@
 #!/bin/bash
 
 OUTPUT="/tmp/log_cron"
-CONTAINERNAME="zettelkasten"n"
+CONTAINERNAME="zettelkasten"
 
 echo "push $(date)" >>$OUTPUT
 /usr/bin/docker container ls|grep Up |grep "$CONTAINERNAME" >>$OUTPUT ||exit 1

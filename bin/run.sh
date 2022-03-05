@@ -1,5 +1,5 @@
 #!/bin/bash
-#this script generate the docker image for zettelkasten
+#this script generate the docker image for zettelkasten and starts it
 
 CONTAINERNAME="zettelkasten"
 IMAGENAME="zettelkasten_image"
