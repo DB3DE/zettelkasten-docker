@@ -15,7 +15,8 @@ RUN \
  echo "**** install additional packages ****" && \
  apk add --no-cache \
 	openssh-client \
-	git && \
+	git \
+	zip && \
  ###################### Configs for Zettelkasten
  cp /app/dokuwiki/conf/local.php.dist /app/dokuwiki/conf/local.php && \
  echo "\$conf['title']       = 'Zettelkasten';        //what to show in the title" >> /app/dokuwiki/conf/local.php && \
@@ -25,7 +26,7 @@ RUN \
  ##############################  DRAW IO
  echo "**** Install plugin Drawio" && \
  echo "  * [[https://www.dokuwiki.org/plugin:drawio|Drawio]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
- curl -o /tmp/drawio.zip -L "https://github.com/lejmr/dokuwiki-plugin-drawio/archive/0.2.9.zip" && \
+ curl -o /tmp/drawio.zip -L "https://github.com/lejmr/dokuwiki-plugin-drawio/archive/refs/tags/0.2.10.zip" && \
  mkdir /tmp/tmpunzip && \
  unzip -d /tmp/tmpunzip /tmp/drawio.zip && \
  rm -rf /app/dokuwiki/lib/plugins/drawio && \
@@ -44,6 +45,17 @@ RUN \
  mv /tmp/tmpunzip/*/* /app/dokuwiki/lib/plugins/imgpaste && \
  rm -r /tmp/tmpunzip && \
  rm /tmp/ImgPaste.zip && \
+ ##############################  dw2pdf pdf export
+ echo "**** Install plugin dw2pdf" && \
+ echo "  * [[https://www.dokuwiki.org//plugin:dw2pdf|dw2pdf]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
+ curl -o /tmp/dw2pdf.tar.gz -L "https://github.com/splitbrain/dokuwiki-plugin-dw2pdf/tarball/master" && \
+ mkdir /tmp/tmpunzip && \
+ tar -xf /tmp/dw2pdf.tar.gz -C /tmp/tmpunzip/ && \
+ rm -rf /app/dokuwiki/lib/plugins/dw2pdf && \
+ mkdir /app/dokuwiki/lib/plugins/dw2pdf && \
+ mv /tmp/tmpunzip/*/* /app/dokuwiki/lib/plugins/dw2pdf && \
+ rm -r /tmp/tmpunzip && \
+ rm /tmp/dw2pdf.tar.gz && \
  ##############################  GitBackend
  echo "**** Install plugin gitbackend" && \
  echo "  * [[https://www.dokuwiki.org/plugin:gitbacked|gitbacked]]" >> /app/dokuwiki/data/pages/installed_plugins.txt && \
@@ -61,11 +73,9 @@ RUN \
 	build-dependencies && \
  rm -rf \
 	/root/.cache \
-	/tmp/*
-
-# copy local files
+	/tmp/* 
+ # copy local files
 COPY root/ /
-
 # ports and volumes
 EXPOSE 80 443
 VOLUME /config
