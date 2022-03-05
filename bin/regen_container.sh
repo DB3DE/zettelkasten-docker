@@ -35,7 +35,7 @@ docker build -t "$IMAGENAME" "$SCRIPTPATH/../"
 
 echo ""
 echo "Starting container"
-docker run -d --name="$CONTAINERNAME" -e PUID=1000 -e PGID=1000   --network git-net -e TZ=Europe/Berlin  -p "$HTTPPORT":80  -p "$SSLPORT":443 -v "$PERSISTEND":/config   --restart unless-stopped "$IMAGENAME"
+docker run -d --name="$CONTAINERNAME" -e PUID=1000 -e PGID=1000   --network bnet -e TZ=Europe/Berlin  -p "$HTTPPORT":80  -p "$SSLPORT":443 -v "$PERSISTEND":/config   --restart unless-stopped "$IMAGENAME"
 echo "Wait 20s to make sure everything initialized"
 sleep 20
 
